@@ -282,7 +282,7 @@ const Index = () => {
 
             {/* Paragraph */}
             <p className="text-xl md:text-2xl text-riso-white/90 mt-6">
-              and I would love to be a designer at Company Name
+              and I would love to be a designer at your company!
             </p>
           </div>
         </div>

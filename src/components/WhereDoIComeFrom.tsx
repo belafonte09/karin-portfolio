@@ -58,7 +58,7 @@ const WhereDoIComeFrom: React.FC = () => {
 
       {/* CV Button */}
       <p className="text-riso-white mb-12">
-        <WavyUnderlineLink href="/cv/karin-hoffmann-cv.pdf">View CV as PDF</WavyUnderlineLink>
+        <WavyUnderlineLink href="/cv/karin-cv-full.pdf">View CV as PDF</WavyUnderlineLink>
       </p>
 
       {/* Experience Cards */}
