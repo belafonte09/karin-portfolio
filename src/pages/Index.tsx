@@ -240,7 +240,7 @@ const Index = () => {
                   I'M KARIN
                 </h1>
                 <div
-                  className="h-12 md:h-16 w-auto shape-pulse cursor-pointer"
+                  className="h-16 md:h-20 w-auto shape-pulse cursor-pointer"
                   onMouseEnter={(e) => {
                     e.currentTarget.classList.add('shape-animating');
                   }}
@@ -259,7 +259,7 @@ const Index = () => {
                   />
                 </div>
                 <div
-                  className="h-12 md:h-16 w-auto shape-rotate-hover cursor-pointer"
+                  className="h-16 md:h-20 w-auto shape-rotate-hover cursor-pointer"
                   onMouseEnter={(e) => {
                     e.currentTarget.classList.add('shape-animating');
                   }}

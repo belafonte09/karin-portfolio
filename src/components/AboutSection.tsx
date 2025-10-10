@@ -5,7 +5,7 @@ const AboutSection = () => {
         <h2 className="section-heading">Who is Karin</h2>
         
         <div className="portfolio-card max-w-3xl mx-auto text-center">
-          <p className="text-lg md:text-xl leading-relaxed text-card-foreground">
+          <p className="text-lg md:text-xl leading-snug md:leading-relaxed text-card-foreground">
             Hi, I'm Karin, a Product Designer passionate about bridging the gap between stakeholders and product teams. I specialize in designing intuitive, efficient internal tools that enhance workflows and drive impactful results.
           </p>
           
