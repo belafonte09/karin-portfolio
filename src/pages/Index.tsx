@@ -235,7 +235,7 @@ const Index = () => {
               <h1 className="text-6xl md:text-7xl font-sora font-bold text-riso-white leading-tight">
                 HI,
               </h1>
-              <div className="flex items-center gap-3">
+              <div className="flex items-end gap-3">
                 <h1 className="text-6xl md:text-7xl font-sora font-bold text-riso-white leading-tight">
                   I'M KARIN
                 </h1>

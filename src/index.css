@@ -461,6 +461,21 @@
     @apply text-foreground;
   }
 
+  /* Mobile-specific line heights for tighter spacing on small screens */
+  @media (max-width: 768px) {
+    h1 {
+      line-height: 1.3;
+    }
+
+    h2 {
+      line-height: 1.3;
+    }
+
+    h3 {
+      line-height: 1.3;
+    }
+  }
+
   h4, h5, h6 {
     font-family: var(--font-family-jost);
     -webkit-font-smoothing: antialiased;
