@@ -114,7 +114,7 @@ const ContactCard: React.FC = () => {
       </h1>
 
       {/* Contact Links */}
-      <div className="flex flex-col md:flex-row items-end gap-8 md:gap-16">
+      <div className="flex flex-col md:flex-row items-start md:items-end gap-8 md:gap-16">
         <ContactLink
           href="https://docs.google.com/document/d/1a1HvTLUeWnqcciY6NEE_Kfmp7OAbA702/edit?usp=sharing&ouid=102463870981616514202&rtpof=true&sd=true"
           onMouseEnter={handleResumeHover}

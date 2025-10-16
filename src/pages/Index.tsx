@@ -369,7 +369,7 @@ const Index = () => {
           </div>
 
           {/* Fact Cards */}
-          <div className="mt-[120px] grid grid-cols-3 gap-4 md:gap-6 justify-items-center mx-auto max-w-md">
+          <div className="mt-[120px] hidden md:grid grid-cols-3 gap-4 md:gap-6 justify-items-center mx-auto max-w-md">
             <FactCardBorn />
             <FactCardHobbies />
             <FactCardLives />
