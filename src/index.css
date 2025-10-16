@@ -310,6 +310,22 @@
     60% { transform: translateY(-4px); }
   }
 
+  /* Star Animation Keyframes */
+  @keyframes star-rotate-clockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes star-rotate-counter-clockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+
+  @keyframes star-breathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
   /* Base hover classes */
   .shape-pulse {
     transition: transform 0.2s ease;
@@ -372,6 +388,85 @@
     .fact-float.shape-animating {
       animation: fact-float 1.2s ease-in-out infinite;
     }
+  }
+
+  /* Star Animation Classes */
+  .star-animation-container {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .star-outer,
+  .star-inner,
+  .star-photo {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Hover animations for star layers */
+  .star-animation-container.star-animating .star-outer {
+    animation: star-rotate-clockwise 8s linear infinite;
+  }
+
+  .star-animation-container.star-animating .star-inner {
+    animation: star-rotate-counter-clockwise 6s linear infinite;
+  }
+
+  .star-animation-container.star-animating {
+    animation: star-breathe 2s ease-in-out infinite;
+  }
+
+  /* Ensure photo stays static */
+  .star-photo {
+    z-index: 10;
+  }
+
+  /* Wavy Button Shape Animation */
+  .wavy-shape-button {
+    clip-path: polygon(
+      10% 15%,
+      20% 12%,
+      80% 12%,
+      90% 15%,
+      93% 30%,
+      95% 50%,
+      93% 70%,
+      90% 85%,
+      80% 88%,
+      20% 88%,
+      10% 85%,
+      7% 70%,
+      5% 50%,
+      7% 30%
+    );
+    transition: clip-path 0.5s ease;
+  }
+
+  .wavy-shape-button:hover {
+    clip-path: polygon(
+      8% 20%,
+      15% 8%,
+      25% 5%,
+      35% 12%,
+      50% 6%,
+      65% 12%,
+      75% 5%,
+      85% 8%,
+      92% 20%,
+      96% 35%,
+      98% 50%,
+      96% 65%,
+      92% 80%,
+      85% 92%,
+      75% 95%,
+      65% 88%,
+      50% 94%,
+      35% 88%,
+      25% 95%,
+      15% 92%,
+      8% 80%,
+      4% 65%,
+      2% 50%,
+      4% 35%
+    );
   }
 
 }

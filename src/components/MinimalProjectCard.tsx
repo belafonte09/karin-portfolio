@@ -35,7 +35,7 @@ const MinimalProjectCard = ({
 
   return (
     <div
-      onClick={() => navigate(`/portfolio/${company}/${encodeURIComponent(name)}`)}
+      onClick={() => window.open(`/portfolio/${company}/${encodeURIComponent(name)}`, '_blank')}
       className="group cursor-pointer mb-24 hover:opacity-80 transition-opacity duration-300"
     >
       <div className="flex flex-col md:flex-row items-start gap-8 md:gap-16">
@@ -44,9 +44,9 @@ const MinimalProjectCard = ({
           <div className="group inline-block">
             <h3 className={`text-3xl font-semibold tracking-tight mb-2 text-riso-white transition-colors max-w-[310px] ${
               name === "How we used AI to simplify Rule Creation"
-                ? "group-hover:text-riso-purple"
+                ? "group-hover:text-riso-green"
                 : name === "How We Fixed our Design-Dev Communication Gap"
-                ? "group-hover:text-riso-pink"
+                ? "group-hover:text-riso-purple"
                 : name === "Mobile App Redesign"
                 ? "group-hover:text-riso-green"
                 : name === "UX/UI for a smarter bulk merge app"
@@ -54,10 +54,10 @@ const MinimalProjectCard = ({
                 : name === "Designing a foodsharing experience"
                 ? "group-hover:text-riso-green"
                 : name === "Boosting Payment Success"
-                ? "group-hover:text-riso-green"
+                ? "group-hover:text-riso-pink"
                 : name === "Data Visualization Platform"
-                ? "group-hover:text-riso-teracotta"
-                : "group-hover:text-riso-teracotta"
+                ? "group-hover:text-riso-blue"
+                : "group-hover:text-riso-blue"
             }`}>{name}</h3>
             <p className="text-sm text-riso-white mb-4">{date}</p>
             <div className="relative w-32 h-2">
@@ -79,9 +79,9 @@ const MinimalProjectCard = ({
                   style={{
                     '--wavy-path': 'path("M0,4 Q32,1 64,4 T128,4")',
                     '--wavy-color': name === "How we used AI to simplify Rule Creation"
-                      ? "hsl(var(--riso-purple))"
+                      ? "hsl(var(--riso-green))"
                       : name === "How We Fixed our Design-Dev Communication Gap"
-                      ? "hsl(var(--riso-pink))"
+                      ? "hsl(var(--riso-purple))"
                       : name === "Mobile App Redesign"
                       ? "hsl(var(--riso-green))"
                       : name === "UX/UI for a smarter bulk merge app"
@@ -89,10 +89,10 @@ const MinimalProjectCard = ({
                       : name === "Designing a foodsharing experience"
                       ? "hsl(var(--riso-green))"
                       : name === "Boosting Payment Success"
-                      ? "hsl(var(--riso-green))"
+                      ? "hsl(var(--riso-pink))"
                       : name === "Data Visualization Platform"
-                      ? "hsl(var(--riso-teracotta))"
-                      : "hsl(var(--riso-teracotta))"
+                      ? "hsl(var(--riso-blue))"
+                      : "hsl(var(--riso-blue))"
                   } as React.CSSProperties}
                 />
               </svg>
@@ -114,26 +114,44 @@ const MinimalProjectCard = ({
         {/* Project Image */}
         <div className="w-full md:w-[652px] h-[405px] relative overflow-hidden bg-riso-background rounded-2xl">
           {name === "Boosting Payment Success" ? (
-            <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
-              <img
-                src="/images/mockups/Iphone-14-mockup-shape-o.png"
-                alt="iPhone 14 mockup showing the improved payment solution"
-                className="w-full h-full object-cover"
-                key="boosting-payment-success" // Force re-render when image changes
-              />
-            </div>
-          ) : name === "How we used AI to simplify Rule Creation" ? (
-            <div className="w-full h-full flex items-center justify-center bg-riso-background transition-transform duration-500 group-hover:scale-105">
-              <div className="scale-100 origin-center">
-                <RuleCreationMacVisual />
+            <>
+              <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
+                <img
+                  src="/images/mockups/mockup-payment.png"
+                  alt="Payment success mockup showing the improved solution"
+                  className="w-full h-full object-cover"
+                  key="payment-mockup-high-res"
+                />
               </div>
-            </div>
+              <img
+                src="/images/mockups/Figma icon.png"
+                alt="Figma"
+                className="absolute top-4 right-4 w-6 h-6 z-10"
+              />
+            </>
+          ) : name === "How we used AI to simplify Rule Creation" ? (
+            <>
+              <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
+                <img
+                  src="/images/mockups/mockup-ai.png"
+                  alt="AI Rule Creation mockup showing the simplified interface"
+                  className="w-full h-full object-cover"
+                  key="ai-mockup-high-res"
+                />
+              </div>
+              <img
+                src="/images/mockups/Figma icon.png"
+                alt="Figma"
+                className="absolute top-4 right-4 w-6 h-6 z-10"
+              />
+            </>
           ) : name === "How We Fixed our Design-Dev Communication Gap" ? (
             <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
               <img
-                src="/images/mockups/Iphone-14-shape-teardrop.png"
-                alt="iPhone 14 teardrop shape mockup for Design-Dev Communication Gap"
+                src="/images/mockups/mockup-dev process.png"
+                alt="Design-Dev Communication Gap mockup showing the improved process"
                 className="w-full h-full object-cover"
+                key="dev-process-mockup-high-res"
               />
             </div>
           ) : name === "Mobile App Redesign" ? (
@@ -166,13 +184,21 @@ const MinimalProjectCard = ({
               />
             </div>
           ) : name === "Data Visualization Platform" ? (
-            <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
+            <>
+              <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
+                <img
+                  src="/images/mockups/mockup-validation dashboard.png"
+                  alt="Data Visualization Platform dashboard mockup"
+                  className="w-full h-full object-cover"
+                  key="dashboard-mockup-high-res"
+                />
+              </div>
               <img
-                src="/images/mockups/macbook-mockup-shape-square.png"
-                alt="Data Visualization Platform MacBook mockup"
-                className="w-full h-full object-cover"
+                src="/images/mockups/Figma icon.png"
+                alt="Figma"
+                className="absolute top-4 right-4 w-6 h-6 z-10"
               />
-            </div>
+            </>
           ) : (
             <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
               <img

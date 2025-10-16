@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import SkillCard from '../components/SkillCard';
 import WavyUnderlineLink from '../components/WavyUnderlineLink';
 import WhereDoIComeFrom from '../components/WhereDoIComeFrom';
 import ContactCard from '../components/ContactCard';
+import MinimalProjectCard from '../components/MinimalProjectCard';
 import WorkflowOptimizerIcon from '../components/icons/WorkflowOptimizerIcon';
 import AICuriosityIcon from '../components/icons/AICuriosityIcon';
 import FigmaProIcon from '../components/icons/FigmaProIcon';
 import BridgingGapsIcon from '../components/icons/BridgingGapsIcon';
 import ExperienceIcon from '../components/icons/ExperienceIcon';
 import AlwaysLearningIcon from '../components/icons/AlwaysLearningIcon';
+import { projects } from '../data/projects';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 // Inline SVG Components with 32px height
 const ShapeBelly = () => {
@@ -223,110 +226,150 @@ const FactCardLives = () => {
 };
 
 const Index = () => {
+  const [showMoreProjects, setShowMoreProjects] = useState(false);
+
   return (
     <main className="min-h-screen bg-background">
       <div className="mx-auto px-2 md:px-8 lg:px-[380px] py-8 space-y-4">
 
         {/* Card 1: I'm Karin */}
         <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
-          <div className="space-y-4">
-            {/* Title with shapes */}
-            <div className="flex flex-col">
-              <h1 className="text-6xl md:text-7xl font-sora font-bold text-riso-white leading-tight">
-                HI,
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
+            {/* Text Content - Left Side */}
+            <div className="flex-1 text-center lg:text-left">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-sora font-bold text-riso-white leading-tight mb-6">
+                HI,<br />I'M KARIN
               </h1>
-              <div className="flex items-end gap-3">
-                <h1 className="text-6xl md:text-7xl font-sora font-bold text-riso-white leading-tight">
-                  I'M KARIN
-                </h1>
-                <div
-                  className="h-16 md:h-20 w-auto shape-pulse cursor-pointer"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.classList.add('shape-animating');
-                  }}
-                  onMouseLeave={(e) => {
-                    const div = e.currentTarget;
-                    div.addEventListener('animationiteration', function completeAnimation() {
-                      div.classList.remove('shape-animating');
-                      div.removeEventListener('animationiteration', completeAnimation);
-                    }, { once: true });
-                  }}
-                >
-                  <img
-                    src="/shapes/shape-belly.svg"
-                    alt="Shape"
-                    className="w-full h-full"
-                  />
-                </div>
-                <div
-                  className="h-16 md:h-20 w-auto shape-rotate-hover cursor-pointer"
-                  onMouseEnter={(e) => {
-                    e.currentTarget.classList.add('shape-animating');
-                  }}
-                  onMouseLeave={(e) => {
-                    const div = e.currentTarget;
-                    div.addEventListener('animationiteration', function completeAnimation() {
-                      div.classList.remove('shape-animating');
-                      div.removeEventListener('animationiteration', completeAnimation);
-                    }, { once: true });
-                  }}
-                >
-                  <img
-                    src="/shapes/shape-m.svg"
-                    alt="Shape"
-                    className="w-full h-full"
-                  />
-                </div>
-              </div>
+              <p className="text-lg md:text-xl text-riso-white/90 leading-relaxed">
+                and I would love to bring my design skills to your company!
+              </p>
             </div>
 
-            {/* Paragraph */}
-            <p className="text-xl md:text-2xl text-riso-white/90 mt-6">
-              and I would love to be a designer at your company!
-            </p>
+            {/* Profile Image - Right Side */}
+            <div className="flex-shrink-0 order-first lg:order-last">
+              <div
+                className="relative w-60 h-60 md:w-72 md:h-72 lg:w-80 lg:h-80 star-animation-container cursor-pointer"
+                onMouseEnter={(e) => {
+                  e.currentTarget.classList.add('star-animating');
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.classList.remove('star-animating');
+                }}
+              >
+                {/* Outer Star Layer - Clockwise */}
+                <img
+                  src="/images/visuals/star-1-riso-white.png"
+                  alt="Outer star layer"
+                  className="absolute inset-0 w-full h-full object-contain star-outer"
+                />
+
+                {/* Inner Star Layer - Counter-clockwise */}
+                <img
+                  src="/images/visuals/star-2-riso-pink.png"
+                  alt="Inner star layer"
+                  className="absolute inset-0 w-full h-full object-contain star-inner"
+                />
+
+                {/* Portrait Photo - Static */}
+                <img
+                  src="/images/visuals/photo-karin.png"
+                  alt="Karin's portrait photo"
+                  className="absolute inset-0 w-full h-full object-contain star-photo"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+
+        {/* Featured Projects Card */}
+        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-riso-white mb-12">Featured projects</h1>
+
+          {/* Element Projects - Always Visible */}
+          <div className="space-y-40 mb-16">
+            {projects.element.map((project, index) => (
+              <MinimalProjectCard
+                key={index}
+                {...project}
+                company="element"
+              />
+            ))}
+          </div>
+
+          {/* View More Work Button */}
+          <div className="flex justify-center mb-8 mt-36">
+            <button
+              onClick={() => setShowMoreProjects(!showMoreProjects)}
+              className="bg-riso-white text-riso-background hover:bg-riso-pink hover:text-white px-8 py-4 rounded-xl font-bold transition-all duration-300"
+              style={{ fontFamily: 'var(--font-family-jost)' }}
+            >
+              {showMoreProjects ? 'View less' : 'View more work'}
+            </button>
+          </div>
+
+          {/* Expandable Section - Mello and Freelance Projects */}
+          <div
+            className={`overflow-hidden transition-all duration-500 ease-in-out ${
+              showMoreProjects
+                ? 'max-h-[5000px] opacity-100'
+                : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="space-y-40">
+              {/* Mello Projects */}
+              {projects.mello.map((project, index) => (
+                <MinimalProjectCard
+                  key={`mello-${index}`}
+                  {...project}
+                  company="mello"
+                />
+              ))}
+
+              {/* Freelance Projects */}
+              {projects.freelance.map((project, index) => (
+                <MinimalProjectCard
+                  key={`freelance-${index}`}
+                  {...project}
+                  company="freelance"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Card */}
+        <div className="mt-4 mb-4">
+          <ContactCard />
         </div>
 
         {/* Card 2: Who is Karin? */}
         <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
-          <h1 className="text-riso-white mb-6">Who is Karin?</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-riso-white mb-6">Who is Karin?</h1>
 
           <p className="text-heading-4 text-riso-white mb-6">
-            I'm a designer with range, skilled in research, prototyping, and testing. I collaborate across teams and help make UX a core part of product culture.
+            I'm a versatile designer skilled in research, prototyping, and testing. I collaborate across teams and help make UX a core part of product culture.
           </p>
 
-          <p className="text-riso-white mb-12">
-            <WavyUnderlineLink href="/portfolio">View my portfolio</WavyUnderlineLink>
-          </p>
 
           <div className="space-y-6 text-body text-riso-white">
             <p className="text-riso-white">
-              I got my first <strong>digital camera</strong> as a kid from my uncle in the States, and immediately started tinkering in Photoshop, fascinated by how visuals could be transformed. That curiosity led me into Fashion Design, but I found myself missing the <strong>analytical</strong> aspect of <strong>problem-solving</strong>.
+              My design journey began with a <strong>digital camera</strong> and Photoshop, sparking a lifelong curiosity about how visuals can solve problems. After studying Fashion Design, I found my true fit in Product Design—where <strong>creativity meets critical thinking</strong>.
             </p>
 
             <p className="text-riso-white">
-              As a <strong>Product Designer</strong>, I have found my sweet spot: blending <strong>creativity</strong> with <strong>critical thinking</strong>, always asking, <em>"How could this work better?"</em>
-            </p>
-
-            <p className="text-riso-white">
-              I have a knack for turning <strong>complexity into clarity</strong>, whether it's <strong>researching</strong> why people don't pay their bills, running quick <strong>usability tests</strong>, designing logos for new launches, or leading <strong>design sprints</strong>. I've collaborated across multiple teams and projects, ensuring that <strong>User Experience has a voice</strong>.
-            </p>
-
-            <p className="text-riso-white">
-              <strong>My impact?</strong> Embedding <strong>User Experience</strong> into <strong>product culture</strong>. Developers who rarely thought about design now use industry best practices and help create solutions that make a real difference.
+              I turn <strong>complexity into clarity</strong>—whether researching user behavior, running <strong>usability tests</strong>, designing for launches, or leading <strong>design sprints</strong>. My biggest impact: <strong>embedding UX into product culture</strong> so teams think design-first and build better solutions.
             </p>
 
             <div className="mt-8">
               <h3 className="text-heading-4 text-riso-white mb-3">What's next?</h3>
               <p className="text-riso-white">
-                I'd love to bring that same energy to your team, as a hands-on designer and a champion of UX.
+                I'd love to bring that same energy to your team—as a hands-on designer and advocate for great UX.
               </p>
             </div>
           </div>
 
           {/* Fact Cards */}
-          <div className="mt-[60px] grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 justify-items-center mx-auto">
-            <FactCardAge />
+          <div className="mt-[120px] grid grid-cols-3 gap-4 md:gap-6 justify-items-center mx-auto max-w-md">
             <FactCardBorn />
             <FactCardHobbies />
             <FactCardLives />
@@ -335,7 +378,7 @@ const Index = () => {
 
         {/* Card 3: What can I bring? */}
         <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
-          <h1 className="text-riso-white mb-8">What can I bring?</h1>
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-riso-white mb-8">What can I bring?</h1>
 
           {/* Skills Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-[18px] md:grid-rows-2">
@@ -392,12 +435,8 @@ const Index = () => {
         </div>
 
         {/* Card 4: Where do I come from? */}
-        <WhereDoIComeFrom />
+        {/* <WhereDoIComeFrom /> */}
 
-        {/* Contact Card */}
-        <div className="mt-48 mb-16">
-          <ContactCard />
-        </div>
 
         {/* Footer Launch Message */}
         <div className="text-center pb-8">

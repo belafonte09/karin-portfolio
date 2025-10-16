@@ -54,7 +54,7 @@ const WhereDoIComeFrom: React.FC = () => {
   return (
     <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
       {/* Section Title */}
-      <h1 className="text-riso-white mb-6">Where do I come from?</h1>
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-riso-white mb-6">Where do I come from?</h1>
 
       {/* CV Button */}
       <p className="text-riso-white mb-12">
