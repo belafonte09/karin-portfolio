@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { User, Copy, Linkedin } from 'lucide-react';
 
 interface ContactLinkProps {
   href?: string;
@@ -7,6 +8,15 @@ interface ContactLinkProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   className?: string;
+}
+
+interface MobileContactButtonProps {
+  href?: string;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  icon: React.ReactNode;
+  children: React.ReactNode;
 }
 
 const ContactLink: React.FC<ContactLinkProps> = ({
@@ -64,6 +74,37 @@ const ContactLink: React.FC<ContactLinkProps> = ({
   );
 };
 
+const MobileContactButton: React.FC<MobileContactButtonProps> = ({
+  href,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  icon,
+  children
+}) => {
+  const handleClick = (e: React.MouseEvent) => {
+    if (onClick) {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      className="flex items-center gap-3 px-4 py-3 border-2 border-white rounded-lg text-white hover:bg-white hover:text-riso-background transition-all duration-300 font-medium w-full"
+    >
+      {icon}
+      <span>{children}</span>
+    </a>
+  );
+};
+
 const ContactCard: React.FC = () => {
   const [cardBg, setCardBg] = useState('bg-riso-background');
   const [copyFeedback, setCopyFeedback] = useState('');
@@ -113,8 +154,50 @@ const ContactCard: React.FC = () => {
         Get in touch
       </h1>
 
-      {/* Contact Links */}
-      <div className="flex flex-col md:flex-row items-start md:items-end gap-8 md:gap-16">
+      {/* Mobile Contact Buttons */}
+      <div className="md:hidden flex flex-col gap-4">
+        <MobileContactButton
+          href="https://docs.google.com/document/d/1a1HvTLUeWnqcciY6NEE_Kfmp7OAbA702/edit?usp=sharing&ouid=102463870981616514202&rtpof=true&sd=true"
+          onMouseEnter={handleResumeHover}
+          onMouseLeave={handleMouseLeave}
+          icon={<User size={20} />}
+        >
+          View Resume
+        </MobileContactButton>
+
+        <div className="relative">
+          <MobileContactButton
+            onClick={handleEmailCopy}
+            onMouseEnter={handleEmailHover}
+            onMouseLeave={handleMouseLeave}
+            icon={<Copy size={20} />}
+          >
+            Copy Email
+          </MobileContactButton>
+          {showTooltip && !copyFeedback && (
+            <div className="absolute -top-10 left-4 bg-riso-white text-riso-background px-3 py-1 rounded text-sm font-medium whitespace-nowrap z-10">
+              Copy
+            </div>
+          )}
+          {copyFeedback && (
+            <div className="absolute -top-10 left-4 bg-riso-white text-riso-background px-3 py-1 rounded text-sm font-medium whitespace-nowrap z-10">
+              {copyFeedback}
+            </div>
+          )}
+        </div>
+
+        <MobileContactButton
+          href="https://www.linkedin.com/in/karin-hoffmann/"
+          onMouseEnter={handleLinkedInHover}
+          onMouseLeave={handleMouseLeave}
+          icon={<Linkedin size={20} />}
+        >
+          LinkedIn
+        </MobileContactButton>
+      </div>
+
+      {/* Desktop Contact Links */}
+      <div className="hidden md:flex flex-row items-end gap-8 md:gap-16">
         <ContactLink
           href="https://docs.google.com/document/d/1a1HvTLUeWnqcciY6NEE_Kfmp7OAbA702/edit?usp=sharing&ouid=102463870981616514202&rtpof=true&sd=true"
           onMouseEnter={handleResumeHover}

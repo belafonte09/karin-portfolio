@@ -300,8 +300,7 @@ const Index = () => {
           <div className="flex justify-center mb-8 mt-36">
             <button
               onClick={() => setShowMoreProjects(!showMoreProjects)}
-              className="bg-riso-white text-riso-background hover:bg-riso-pink hover:text-white px-8 py-4 rounded-xl font-bold transition-all duration-300"
-              style={{ fontFamily: 'var(--font-family-jost)' }}
+              className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-riso-pink px-8 py-4 rounded-xl font-medium transition-all duration-300 w-full md:w-auto"
             >
               {showMoreProjects ? 'View less' : 'View more work'}
             </button>

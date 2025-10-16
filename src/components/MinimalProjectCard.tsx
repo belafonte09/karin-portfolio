@@ -112,14 +112,14 @@ const MinimalProjectCard = ({
         </div>
 
         {/* Project Image */}
-        <div className="w-full md:w-[652px] h-[405px] relative overflow-hidden bg-riso-background rounded-2xl">
+        <div className="w-full md:w-[652px] h-[280px] md:h-[405px] relative overflow-hidden bg-riso-background rounded-2xl">
           {name === "Boosting Payment Success" ? (
             <>
               <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
                 <img
                   src="/images/mockups/mockup-payment.png"
                   alt="Payment success mockup showing the improved solution"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover"
                   key="payment-mockup-high-res"
                 />
               </div>
@@ -135,7 +135,7 @@ const MinimalProjectCard = ({
                 <img
                   src="/images/mockups/mockup-ai.png"
                   alt="AI Rule Creation mockup showing the simplified interface"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover"
                   key="ai-mockup-high-res"
                 />
               </div>
@@ -156,7 +156,7 @@ const MinimalProjectCard = ({
             </div>
           ) : name === "Mobile App Redesign" ? (
             <div
-              className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105 cursor-pointer rounded-2xl overflow-hidden"
+              className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               onClick={handleImageClick}
               title="Click to view PDF"
             >
@@ -168,7 +168,7 @@ const MinimalProjectCard = ({
             </div>
           ) : company === "freelance" && pdfUrl ? (
             <div
-              className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105 cursor-pointer rounded-2xl overflow-hidden"
+              className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               onClick={handleImageClick}
               title="Click to view PDF"
             >
@@ -189,7 +189,7 @@ const MinimalProjectCard = ({
                 <img
                   src="/images/mockups/mockup-validation dashboard.png"
                   alt="Data Visualization Platform dashboard mockup"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain md:object-cover"
                   key="dashboard-mockup-high-res"
                 />
               </div>
