@@ -300,7 +300,7 @@ const Index = () => {
           <div className="flex justify-center mb-8 mt-36">
             <button
               onClick={() => setShowMoreProjects(!showMoreProjects)}
-              className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-riso-pink px-8 py-4 rounded-xl font-medium transition-all duration-300 w-full md:w-auto"
+              className="border-2 border-white bg-transparent text-white hover:bg-riso-pink hover:text-white hover:border-riso-pink px-8 py-4 rounded-xl font-medium transition-all duration-300 w-full md:w-auto"
             >
               {showMoreProjects ? 'View less' : 'View more work'}
             </button>
