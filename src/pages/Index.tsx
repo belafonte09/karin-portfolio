@@ -229,18 +229,18 @@ const Index = () => {
   const [showMoreProjects, setShowMoreProjects] = useState(false);
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-riso-white md:bg-background">
       <div className="mx-auto px-2 md:px-8 lg:px-[380px] py-8 space-y-4">
 
         {/* Card 1: I'm Karin */}
-        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
+        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white ">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
             {/* Text Content - Left Side */}
             <div className="flex-1 text-center lg:text-left">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-sora font-bold text-riso-white leading-tight mb-6">
                 HI,<br />I'M KARIN
               </h1>
-              <p className="text-lg md:text-xl text-riso-white/90 leading-relaxed">
+              <p className="text-lg md:text-2xl text-riso-white/90 leading-relaxed">
                 and I would love to bring my design skills to your company!
               </p>
             </div>
@@ -253,7 +253,9 @@ const Index = () => {
                   e.currentTarget.classList.add('star-animating');
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.classList.remove('star-animating');
+                  setTimeout(() => {
+                    e.currentTarget.classList.remove('star-animating');
+                  }, 600);
                 }}
               >
                 {/* Outer Star Layer - Clockwise */}
@@ -282,7 +284,7 @@ const Index = () => {
         </div>
 
         {/* Featured Projects Card */}
-        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
+        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white ">
           <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-riso-white mb-12">Featured projects</h1>
 
           {/* Element Projects - Always Visible */}
@@ -342,7 +344,7 @@ const Index = () => {
         </div>
 
         {/* Card 2: Who is Karin? */}
-        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
+        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white ">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-riso-white mb-6">Who is Karin?</h1>
 
           <p className="text-heading-4 text-riso-white mb-6">
@@ -368,7 +370,7 @@ const Index = () => {
           </div>
 
           {/* Fact Cards */}
-          <div className="mt-[120px] hidden md:grid grid-cols-3 gap-4 md:gap-6 justify-items-center mx-auto max-w-md">
+          <div className="mt-[120px] hidden md:grid grid-cols-3 gap-6 md:gap-8 justify-items-center mx-auto max-w-lg">
             <FactCardBorn />
             <FactCardHobbies />
             <FactCardLives />
@@ -376,7 +378,7 @@ const Index = () => {
         </div>
 
         {/* Card 3: What can I bring? */}
-        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white">
+        <div className="bg-riso-background rounded-2xl p-6 md:pt-[72px] md:pl-16 md:pb-[72px] md:pr-16 text-riso-white ">
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-riso-white mb-8">What can I bring?</h1>
 
           {/* Skills Grid */}

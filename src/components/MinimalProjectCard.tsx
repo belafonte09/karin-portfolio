@@ -112,21 +112,21 @@ const MinimalProjectCard = ({
         </div>
 
         {/* Project Image */}
-        <div className="w-full md:w-[652px] h-[280px] md:h-[405px] relative overflow-hidden bg-riso-background rounded-2xl">
+        <div className="w-full md:w-[652px] h-[280px] md:h-[405px] relative overflow-hidden bg-riso-background rounded-lg">
           {name === "Boosting Payment Success" ? (
             <>
               <div className="w-full h-full relative bg-riso-background transition-transform duration-500 group-hover:scale-105">
                 <img
                   src="/images/mockups/mockup-payment.png"
                   alt="Payment success mockup showing the improved solution"
-                  className="w-full h-full object-contain md:object-cover"
+                  className="w-full h-full object-cover rounded-lg"
                   key="payment-mockup-high-res"
                 />
               </div>
               <img
                 src="/images/mockups/Figma icon.png"
                 alt="Figma"
-                className="absolute top-4 right-4 w-6 h-6 z-10"
+                className="absolute top-4 right-4 w-6 h-6 z-10 hidden md:block"
               />
             </>
           ) : name === "How we used AI to simplify Rule Creation" ? (
@@ -135,14 +135,14 @@ const MinimalProjectCard = ({
                 <img
                   src="/images/mockups/mockup-ai.png"
                   alt="AI Rule Creation mockup showing the simplified interface"
-                  className="w-full h-full object-contain md:object-cover"
+                  className="w-full h-full object-cover rounded-lg"
                   key="ai-mockup-high-res"
                 />
               </div>
               <img
                 src="/images/mockups/Figma icon.png"
                 alt="Figma"
-                className="absolute top-4 right-4 w-6 h-6 z-10"
+                className="absolute top-4 right-4 w-6 h-6 z-10 hidden md:block"
               />
             </>
           ) : name === "How We Fixed our Design-Dev Communication Gap" ? (
@@ -150,7 +150,7 @@ const MinimalProjectCard = ({
               <img
                 src="/images/mockups/mockup-dev process.png"
                 alt="Design-Dev Communication Gap mockup showing the improved process"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-lg"
                 key="dev-process-mockup-high-res"
               />
             </div>
@@ -163,7 +163,7 @@ const MinimalProjectCard = ({
               <img
                 src="/images/mockups/mello-mobile-app-first-page.png"
                 alt="Mobile App Redesign - Click to view PDF"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-lg"
               />
             </div>
           ) : company === "freelance" && pdfUrl ? (
@@ -179,7 +179,7 @@ const MinimalProjectCard = ({
                   ? "/images/projects/freelance/appetit-preview.png"
                   : image}
                 alt={`${name} - Click to view PDF`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-lg"
                 key={name} // Force re-render when image changes
               />
             </div>
@@ -189,14 +189,14 @@ const MinimalProjectCard = ({
                 <img
                   src="/images/mockups/mockup-validation dashboard.png"
                   alt="Data Visualization Platform dashboard mockup"
-                  className="w-full h-full object-contain md:object-cover"
+                  className="w-full h-full object-cover rounded-lg"
                   key="dashboard-mockup-high-res"
                 />
               </div>
               <img
                 src="/images/mockups/Figma icon.png"
                 alt="Figma"
-                className="absolute top-4 right-4 w-6 h-6 z-10"
+                className="absolute top-4 right-4 w-6 h-6 z-10 hidden md:block"
               />
             </>
           ) : (
@@ -206,7 +206,7 @@ const MinimalProjectCard = ({
                 alt={name}
                 width={652}
                 height={405}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-lg"
               />
             </div>
           )}
